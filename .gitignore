@@ -1,0 +1,16 @@
+# Embeddings and dataset (multi-GB; regenerate with embed.py)
+data/
+
+# DINOv3 source (clone separately, see README)
+dinov3/
+
+# Regenerable outputs
+splits/
+checkpoints/
+
+# Python / Jupyter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+.DS_Store
