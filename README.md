@@ -138,7 +138,7 @@ probe.py              Steps 1-2: train/test split, kNN eval, linear/MLP classifi
 year_buckets.py       Data-driven year buckets per model         -> year_buckets.json
 common.py             Shared paths and label helpers
 year_buckets.json     Every make_model_year label -> its bucket
-analysis/             Error CSVs and confused-pair photo grids
+analysis/             Error CSVs, confused-pair photo grids, run logs
 notebooks/            Original exploration (sample-size experiments, first full-dataset kNN)
 ```
 

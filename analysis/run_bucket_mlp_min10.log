@@ -1,0 +1,56 @@
+# Output of: python probe.py --target bucket --head mlp
+Target: bucket, 2,118 buckets over 280,209 images (median span 4 years, mean 6.4)
+Split (reused from make_model_min10_seed42.npz): train 201,750 / val 22,417 / test 56,042
+
+=== Step 1: kNN retrieval (test queries vs. train gallery) ===
+Searched 56,042 queries against 224,167 images in 14s
+  1-NN accuracy                              84.82%
+  10-NN weighted vote accuracy               84.96%
+  1-NN make accuracy                         97.74%
+  1-NN make+model accuracy                   89.00%
+  1-NN exact label (incl. year) accuracy     40.15%
+
+  Near-duplicates (top-1 sim >= 0.95): 11,468 of 56,042 test images (20.5%)
+  1-NN accuracy on near-duplicates:          89.92%
+  1-NN accuracy excluding near-duplicates:   83.51%
+  Top-1 similarity percentiles (5/25/50/75/95): 0.832 / 0.894 / 0.923 / 0.946 / 0.973
+
+=== Step 2: mlp probe on frozen embeddings ===
+  epoch   1  loss 4.6666  val acc 75.41%  (2s)
+  epoch   2  loss 1.9023  val acc 81.84%  (3s)
+  epoch   3  loss 1.6672  val acc 83.77%  (5s)
+  epoch   4  loss 1.5747  val acc 84.77%  (6s)
+  epoch   5  loss 1.4868  val acc 85.52%  (8s)
+  epoch   6  loss 1.4362  val acc 84.73%  (10s)
+  epoch   7  loss 1.4118  val acc 86.11%  (11s)
+  epoch   8  loss 1.3700  val acc 86.54%  (13s)
+  epoch   9  loss 1.3317  val acc 86.84%  (15s)
+  epoch  10  loss 1.3175  val acc 87.51%  (16s)
+  epoch  11  loss 1.2868  val acc 87.58%  (18s)
+  epoch  12  loss 1.2732  val acc 87.71%  (19s)
+  epoch  13  loss 1.2599  val acc 87.98%  (21s)
+  epoch  14  loss 1.2446  val acc 88.02%  (23s)
+  epoch  15  loss 1.2431  val acc 88.26%  (24s)
+  epoch  16  loss 1.2204  val acc 88.46%  (26s)
+  epoch  17  loss 1.2080  val acc 88.63%  (27s)
+  epoch  18  loss 1.2014  val acc 88.56%  (29s)
+  epoch  19  loss 1.1970  val acc 88.48%  (31s)
+  epoch  20  loss 1.1902  val acc 88.71%  (32s)
+  epoch  21  loss 1.1839  val acc 88.74%  (34s)
+  epoch  22  loss 1.1788  val acc 88.70%  (36s)
+  epoch  23  loss 1.1749  val acc 88.98%  (37s)
+  epoch  24  loss 1.1714  val acc 88.84%  (39s)
+  epoch  25  loss 1.1695  val acc 88.88%  (40s)
+  epoch  26  loss 1.1672  val acc 88.84%  (42s)
+  epoch  27  loss 1.1657  val acc 88.86%  (44s)
+  epoch  28  loss 1.1644  val acc 88.95%  (45s)
+  epoch  29  loss 1.1636  val acc 88.93%  (47s)
+  epoch  30  loss 1.1631  val acc 88.91%  (48s)
+
+  Best epoch 23 (val acc 88.98%)
+  Test top-1 accuracy                        89.13%
+  Test top-5 accuracy                        98.27%
+  Test make accuracy                         98.37%
+  Test make+model accuracy                   91.99%
+  Test top-1 excluding near-duplicates       88.36%
+  Saved probe to checkpoints/probe_mlp_bucket_min10.pt
