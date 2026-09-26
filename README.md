@@ -18,8 +18,19 @@ year buckets.
 | **Make + model + year bucket** (`honda_civic_2001-2005`) | 2,118 | 84.8% | 88.7% | **89.1%** |
 | Make + model + exact year (`honda_civic_2003`) | 4,481 | 42.4% | 49.4% | – |
 
+### Final model: make + model + generation
+
+The MLP classifier on year buckets, evaluated on the same 56,042 test images:
+
+| Metric | Accuracy |
+|---|---:|
+| Top-1 (make + model + generation all correct) | **89.1%** |
+| Top-5 | 98.3% |
+| Make correct | 98.4% |
+| Make + model correct | 92.0% |
+| Top-1, excluding near-duplicate photos | 88.4% |
+
 - **Make only:** about 98% correct for every approach.
-- **Top-5:** the bucket MLP has the right answer in its top 5 guesses 98.3% of the time.
 - **Year buckets fix the year problem.** Predicting the exact year tops out around 49%, because neighbouring
   years of the same generation look identical. Grouping those years into data-driven buckets raises accuracy
   to 89%. When the classifier gets the car right, it picks the right generation about 97% of the time.
