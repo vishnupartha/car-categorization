@@ -126,9 +126,7 @@ different.
   they line up with real model generations.
 - **The remaining errors are mostly label problems.** Rebadged twins were kept as separate classes on purpose,
   so some errors are expected and unavoidable.
-- **Fine-tuning was not pursued.** It's estimated at about $5 per run on a cloud H100, or about 20 hours on
-  an M5 Pro. It can't resolve overlapping labels or near-identical twins, so the expected gain is small.
-  Merging overlapping label names would be the cheapest next improvement.
+- **Next step: fine tuning** Data prep files have been made for fine-tuning. Doing it on a cloud A100 is a next step direction (perhaps with a more recent dataset of cars, or with hypercars, or other).
 
 ## Repository layout
 
